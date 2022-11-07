@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,12 @@ use App\Http\Controllers\Api\AuthController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('auth/login', [AuthController::class, 'login']);
-Route::get('hotels', [\App\Http\Controllers\Api\HotelController::class, 'index'])->middleware('auth:sanctum');
-Route::post('hotels', [\App\Http\Controllers\Api\HotelController::class, 'store'])->middleware('auth:sanctum');
-Route::get('hotels/{id}', [\App\Http\Controllers\Api\HotelController::class, 'show'])->middleware('auth:sanctum');
-Route::patch('hotels/{id}', [\App\Http\Controllers\Api\HotelController::class, 'update'])->middleware('auth:sanctum');
-Route::delete('hotels/{id}', [\App\Http\Controllers\Api\HotelController::class, 'destroy'])->middleware('auth:sanctum');
+Route::get('hotels', [HotelController::class, 'index'])->middleware('auth:sanctum');
+Route::post('hotels', [HotelController::class, 'store'])->middleware('auth:sanctum');
+Route::get('hotels/{id}', [HotelController::class, 'show'])->middleware('auth:sanctum');
+Route::patch('hotels/{id}', [HotelController::class, 'update'])->middleware('auth:sanctum');
+Route::delete('hotels/{id}', [HotelController::class, 'destroy'])->middleware('auth:sanctum');
 
 
