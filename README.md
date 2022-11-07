@@ -9,9 +9,10 @@ In order to run this project you just only have Docker and Docker-compose instal
 Once you have cloned the project run:
 > docker run --rm --interactive --tty   --volume $PWD:/app   --user $(id -u):$(id -g)   composer install
 
+> ./vendor/bin/sail sail up -d
+
 > ./vendor/bin/sail artisan migrate --seed
 
-> ./vendor/bin/sail sail up
 
 
 to get access token with the following inputs:
