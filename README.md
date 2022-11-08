@@ -18,7 +18,7 @@ Once you have cloned the project run:
 to get access token with the following inputs:
 password:password
 email:test@gmail.com
-> http://localhost:8000/api/auth/login
+>POST http://localhost:8000/api/auth/login
 
 create new hotel:
 
@@ -54,10 +54,16 @@ update existing hotel:
 >PARCH http://localhost:8888/api/hotels/{id}
 
 list hotels:
+You can pass sorted method and sorted key as a param:
+>GET http://localhost:8000/api/hotels?name=***&country=***&city=**&price=**&sort_key=id&sort_method=asc
 
->http://localhost:8000/api/hotels?name=***&country=***&city=**&price=**
+Show hotel:
 
+>GET http://localhost:8000/api/hotels/{id}
 
+Delete hotel:
+
+>delete http://localhost:8000/api/hotels/{id}
 
 ## Unit-Test
 
